@@ -27,36 +27,31 @@ function checkWinner() {
 
     // Check rows
     for(let i = 0; i < 3; i++) {
+        // check rows
         if(board[i][0] === player1 && board[i][1] === player1 && board[i][2] === player1) {
             return player1;
         } else if(board[i][0] === player2 && board[i][1] === player2 && board[i][2] === player2) {
             return player2;
-        }
-    }
-
-    // check columns
-    for(let i = 0;i < 3;i++){
-        if(board[0][i] === player1 && board[1][i] === player1 && board[2][i]){
+            // check columns
+        } else if(board[0][i] === player1 && board[1][i] === player1 && board[2][i]){
             return player1;
         } else if(board[0][i] === player2 && board[1][i] === player2 && board[2][i]){
             return player2;
-        }
-    }
-
-    // check diagnols
-    for(let i = 0;i < 3;i++){
-        if(board[0][0] === player1 && board[1][1] === player1 && board[2][2] === player1 ||
+            // check diagnols
+        } else if(board[0][0] === player1 && board[1][1] === player1 && board[2][2] === player1 ||
             board[0][2] === player1 && board[1][1] === player1 && board[2][0] === player1) {
-            return player1; 
+                return player1; 
         } else if(board[0][0] === player2 && board[1][1] === player2 && board[2][2] === player2 ||
             board[0][2] === player2 && board[1][1] === player2 && board[2][0] === player2) {
                 return player2;
+        } else {
+            return "Tie!";
         }
     }
 }
 
 
-updateBoard(0, 2, players.player1);
+updateBoard(0, 1, players.player1);
 updateBoard(1, 1, players.player1);
 updateBoard(2, 0, players.player1);
 console.log(gameBoard.getBoard()); // [ [ '', '', '' ], [ '', '', '' ], [ '', '', '' ] ]
